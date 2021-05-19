@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
@@ -41,19 +40,19 @@ public class Player : MonoBehaviour
         {
             transform.Translate(Vector2.left * Time.deltaTime * speedMultiplier);
             if (speedMultiplier <= 15f)
-               speedMultiplier += Time.deltaTime * 15f;
+                speedMultiplier += Time.deltaTime * 15f;
         }
         else if (Input.GetKey(KeyCode.RightArrow))
         {
-             transform.Translate(Vector2.right * Time.deltaTime * speedMultiplier);
-             if (speedMultiplier <= 15f)
+            transform.Translate(Vector2.right * Time.deltaTime * speedMultiplier);
+            if (speedMultiplier <= 15f)
                 speedMultiplier += Time.deltaTime * 15f;
         }
         else
         {
             if (speedMultiplier >= 0f)
                 speedMultiplier -= Time.deltaTime * 25f;
-        } 
+        }
         if (Input.GetKeyUp(KeyCode.LeftArrow))
         {
             speedMultiplier = 3f;
