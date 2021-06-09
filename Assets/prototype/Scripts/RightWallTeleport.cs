@@ -6,21 +6,26 @@ public class RightWallTeleport : MonoBehaviour
 {
     [SerializeField] private Transform player;
     [SerializeField] private Transform teleportPoint;
-
-    void OnTriggerEnter2D(Collider2D player)
-    {
-        teleportPoint.transform.position = player.transform.position - new Vector3(22, 0, 0);
-        player.transform.position = teleportPoint.transform.position;
-    }
-
     public Transform targetTransform;
     Vector3 tempVec3 = new Vector3();
 
+    void OnTriggerEnter2D(Collider2D player)
+    {
+        if (player != null)
+        {
+           teleportPoint.transform.position = player.transform.position - new Vector3(18, 0, 0);
+           player.transform.position = teleportPoint.transform.position;
+        }
+    }
+
     private void Update()
     {
-        tempVec3.x = this.transform.position.x;
-        tempVec3.y = targetTransform.position.y;
-        tempVec3.z = this.transform.position.z;
-        this.transform.position = tempVec3;
+        if (player != null)
+        {
+            tempVec3.x = this.transform.position.x;
+            tempVec3.y = targetTransform.position.y;
+            tempVec3.z = this.transform.position.z;
+            this.transform.position = tempVec3;
+        }
     }
 }
